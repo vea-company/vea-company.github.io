@@ -1,0 +1,151 @@
+paths:
+  create:
+    post:
+      tags:
+        - pay-out-transactions
+      summary: 'Создание транзакций на вывод BDT'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: 'Field description'
+              type: object
+              properties:
+                jsonrpc:
+                  description: 'Field description'
+                  type: string
+                  example: '2.0'
+                method:
+                  description: 'Field description'
+                  type: string
+                  example: pay-out-transactions.create
+                params:
+                  description: 'Field description'
+                  type: object
+                  properties:
+                    body:
+                      description: 'Field description'
+                      type: object
+                      properties:
+                        id:
+                          description: 'Field description'
+                          type: string
+                          example: Test03
+                        date:
+                          description: 'Field description'
+                          type: string
+                          example: '2021-12-31 00:10:36'
+                        amount:
+                          description: 'Field description'
+                          type: integer
+                          example: 1100
+                        card_number:
+                          description: 'Field description'
+                          type: string
+                          example: '5469600044983310'
+                        currency:
+                          description: 'Field description'
+                          type: string
+                          example: BDT
+                        token:
+                          description: 'Field description'
+                          type: string
+                          example: secret
+                        callback_url:
+                          description: 'Field description'
+                          type: string
+                          example: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                    meta:
+                      description: 'Field description'
+                      type: object
+                      properties:
+                        version:
+                          description: 'Field description'
+                          type: string
+                          example: '1'
+                id:
+                  description: 'Field description'
+                  type: integer
+                  example: 1
+              example:
+                jsonrpc: '2.0'
+                method: pay-out-transactions.create
+                params:
+                  body:
+                    id: Test03
+                    date: '2021-12-31 00:10:36'
+                    amount: 1100
+                    card_number: '5469600044983310'
+                    currency: BDT
+                    token: secret
+                    callback_url: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                  meta:
+                    version: '1'
+                id: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                description: 'Field description'
+                type: object
+                properties:
+                  jsonrpc:
+                    description: 'Field description'
+                    type: string
+                    example: '2.0'
+                  result:
+                    description: 'Field description'
+                    type: object
+                    properties:
+                      body:
+                        description: 'Field description'
+                        type: object
+                        properties:
+                          id:
+                            description: 'Field description'
+                            type: string
+                            example: Test03
+                          date:
+                            description: 'Field description'
+                            type: string
+                            example: '2021-12-31 00:10:36'
+                          amount:
+                            description: 'Field description'
+                            type: integer
+                            example: 1100
+                          card_number:
+                            description: 'Field description'
+                            type: string
+                            example: '5469600044983310'
+                          currency:
+                            description: 'Field description'
+                            type: string
+                            example: BDT
+                          token:
+                            description: 'Field description'
+                            type: string
+                            example: secret
+                          callback_url:
+                            description: 'Field description'
+                            type: string
+                            example: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                  id:
+                    description: 'Field description'
+                    type: integer
+                    example: 1
+                example:
+                  jsonrpc: '2.0'
+                  result:
+                    body:
+                      id: Test03
+                      date: '2021-12-31 00:10:36'
+                      amount: 1100
+                      card_number: '5469600044983310'
+                      currency: BDT
+                      token: secret
+                      callback_url: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                  id: 1
+      security:
+        -
+          bearerAuth: {  }

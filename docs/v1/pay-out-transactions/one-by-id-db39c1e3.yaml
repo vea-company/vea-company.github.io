@@ -1,0 +1,111 @@
+paths:
+  one-by-id:
+    post:
+      tags:
+        - pay-out-transactions
+      summary: 'Получение статуса транзакций на вывод'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: 'Field description'
+              type: object
+              properties:
+                jsonrpc:
+                  description: 'Field description'
+                  type: string
+                  example: '2.0'
+                method:
+                  description: 'Field description'
+                  type: string
+                  example: pay-out-transactions.one-by-id
+                params:
+                  description: 'Field description'
+                  type: object
+                  properties:
+                    body:
+                      description: 'Field description'
+                      type: object
+                      properties:
+                        id:
+                          description: 'Field description'
+                          type: string
+                          example: 54ad8f7-0621-4794-a893-da5e840cea7b
+                    meta:
+                      description: 'Field description'
+                      type: object
+                      properties:
+                        version:
+                          description: 'Field description'
+                          type: string
+                          example: '1'
+                id:
+                  description: 'Field description'
+                  type: integer
+                  example: 1
+              example:
+                jsonrpc: '2.0'
+                method: pay-out-transactions.one-by-id
+                params:
+                  body:
+                    id: 54ad8f7-0621-4794-a893-da5e840cea7b
+                  meta:
+                    version: '1'
+                id: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                description: 'Field description'
+                type: object
+                properties:
+                  jsonrpc:
+                    description: 'Field description'
+                    type: string
+                    example: '2.0'
+                  result:
+                    description: 'Field description'
+                    type: object
+                    properties:
+                      body:
+                        description: 'Field description'
+                        type: object
+                        properties:
+                          id:
+                            description: 'Field description'
+                            type: string
+                            example: 754ad8f7-0621-4794-a893-da5e840cea7b
+                          status:
+                            description: 'Field description'
+                            type: string
+                            example: success
+                          amount:
+                            description: 'Field description'
+                            type: double
+                            example: 408.29
+                          internalId:
+                            description: 'Field description'
+                            type: integer
+                            example: 6
+                          comment:
+                            description: 'Field description'
+                            type: string
+                            example: ''
+                  id:
+                    description: 'Field description'
+                    type: integer
+                    example: 1
+                example:
+                  jsonrpc: '2.0'
+                  result:
+                    body:
+                      id: 754ad8f7-0621-4794-a893-da5e840cea7b
+                      status: success
+                      amount: 408.29
+                      internalId: 6
+                      comment: ''
+                  id: 1
+      security:
+        -
+          bearerAuth: {  }

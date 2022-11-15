@@ -1,0 +1,126 @@
+paths:
+  create:
+    post:
+      tags:
+        - pay-in-transactions
+      summary: "Создание заказа на пополнение KRW\r\n(payment_method = 1 (P2P))"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: 'Field description'
+              type: object
+              properties:
+                jsonrpc:
+                  description: 'Field description'
+                  type: string
+                  example: '2.0'
+                method:
+                  description: 'Field description'
+                  type: string
+                  example: pay-in-transactions.create
+                params:
+                  description: 'Field description'
+                  type: object
+                  properties:
+                    body:
+                      description: 'Field description'
+                      type: object
+                      properties:
+                        order_id:
+                          description: 'Field description'
+                          type: string
+                          example: Test.0004
+                        amount:
+                          description: 'Field description'
+                          type: integer
+                          example: 5000
+                        token:
+                          description: 'Field description'
+                          type: string
+                          example: secret
+                        payment_method:
+                          description: 'Field description'
+                          type: integer
+                          example: 1
+                        date:
+                          description: 'Field description'
+                          type: string
+                          example: '2022-02-16 21:00:00'
+                        currency:
+                          description: 'Field description'
+                          type: string
+                          example: KRW
+                        callback_url:
+                          description: 'Field description'
+                          type: string
+                          example: 'http://mservis.local'
+                        back_to_merchant_url:
+                          description: 'Field description'
+                          type: string
+                          example: 'http://mservis.local'
+                    meta:
+                      description: 'Field description'
+                      type: object
+                      properties:
+                        version:
+                          description: 'Field description'
+                          type: string
+                          example: '1'
+                id:
+                  description: 'Field description'
+                  type: integer
+                  example: 1
+              example:
+                jsonrpc: '2.0'
+                method: pay-in-transactions.create
+                params:
+                  body:
+                    order_id: Test.0004
+                    amount: 5000
+                    token: secret
+                    payment_method: 1
+                    date: '2022-02-16 21:00:00'
+                    currency: KRW
+                    callback_url: 'http://mservis.local'
+                    back_to_merchant_url: 'http://mservis.local'
+                  meta:
+                    version: '1'
+                id: 1
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                description: 'Field description'
+                type: object
+                properties:
+                  jsonrpc:
+                    description: 'Field description'
+                    type: string
+                    example: '2.0'
+                  result:
+                    description: 'Field description'
+                    type: object
+                    properties:
+                      body:
+                        description: 'Field description'
+                        type: object
+                        properties:
+                          redirect_url:
+                            description: 'Field description'
+                            type: string
+                            example: testUrl.com
+                  id:
+                    description: 'Field description'
+                    type: integer
+                    example: 1
+                example:
+                  jsonrpc: '2.0'
+                  result:
+                    body:
+                      redirect_url: testUrl.com
+                  id: 1
+      security:
+        -
+          bearerAuth: {  }
