@@ -72,7 +72,7 @@ paths:
                         description: 'Field description'
                         type: object
                         properties:
-                          order_id:
+                          orderId:
                             description: 'Field description'
                             type: string
                             example: '5888343723'
@@ -84,15 +84,15 @@ paths:
                             description: 'Field description'
                             type: integer
                             example: 500
-                          new_amount:
+                          newAmount:
                             description: 'Field description'
                             type: integer
                             example: 500
-                          card_number:
+                          cardNumber:
                             description: 'Field description'
                             type: string
                             example: '4276********3333'
-                          internal_id:
+                          internalId:
                             description: 'Field description'
                             type: integer
                             example: 962707
@@ -100,11 +100,11 @@ paths:
                             description: 'Field description'
                             type: string
                             example: BDT
-                          wallet_provider:
+                          walletProvider:
                             description: 'Field description'
                             type: 'NULL'
                             example: null
-                          trx_id:
+                          trxId:
                             description: 'Field description'
                             type: string
                             example: 77788a
@@ -116,15 +116,15 @@ paths:
                   jsonrpc: '2.0'
                   result:
                     body:
-                      order_id: '5888343723'
+                      orderId: '5888343723'
                       status: fail
                       amount: 500
-                      new_amount: 500
-                      card_number: '4276********3333'
-                      internal_id: 962707
+                      newAmount: 500
+                      cardNumber: '4276********3333'
+                      internalId: 962707
                       currency: BDT
-                      wallet_provider: null
-                      trx_id: 77788a
+                      walletProvider: null
+                      trxId: 77788a
                   id: 1
       security:
         -

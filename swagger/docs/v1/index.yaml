@@ -2,10 +2,7 @@ openapi: 3.0.3
 x-envelope: jsonrpc-2.0
 info:
   title: 'Прокси сервис для внешних интеграций'
-  description: |
-    Используется протокол JSON-RPC 2.0
-
-    [Ссылка на общий контракт](https://github.com/vea-company/vea-company.github.io/blob/main/json-rpc-contract/README.md)
+  description: "Используется протокол JSON-RPC 2.0\n\n[Ссылка на общий контракт](https://github.com/vea-company/vea-company.github.io/blob/main/json-rpc-contract/README.md)\n"
   version: 1.0.0
 tags:
   -
@@ -16,7 +13,7 @@ tags:
     description: 'Заказы на пополнение'
 servers:
   -
-    url: 'http://v81.server.soc/json-rpc'
+    url: 'http://api-gate.vea/json-rpc'
     description: 'Develop server'
 components:
   securitySchemes:
@@ -25,31 +22,29 @@ components:
       scheme: bearer
       bearerFormat: JWT
 paths:
-  '/pay-in-transactions.create#1f86a79f':
-    $ref: './pay-in-transactions/create-1f86a79f.yaml#/paths/create'
-  '/pay-in-transactions.create#3aea838f':
-    $ref: './pay-in-transactions/create-3aea838f.yaml#/paths/create'
-  '/pay-in-transactions.create#3e6c06de':
-    $ref: './pay-in-transactions/create-3e6c06de.yaml#/paths/create'
-  '/pay-in-transactions.create#cfea1576':
-    $ref: './pay-in-transactions/create-cfea1576.yaml#/paths/create'
-  '/pay-in-transactions.create#d2821d0d':
-    $ref: './pay-in-transactions/create-d2821d0d.yaml#/paths/create'
-  '/pay-in-transactions.create#da450505':
-    $ref: './pay-in-transactions/create-da450505.yaml#/paths/create'
-  '/pay-in-transactions.create#df6c0ff6':
-    $ref: './pay-in-transactions/create-df6c0ff6.yaml#/paths/create'
+  '/pay-in-transactions.create#09988ee8':
+    $ref: './pay-in-transactions/create-09988ee8.yaml#/paths/create'
+  '/pay-in-transactions.create#4b2521b5':
+    $ref: './pay-in-transactions/create-4b2521b5.yaml#/paths/create'
+  '/pay-in-transactions.create#62d013d5':
+    $ref: './pay-in-transactions/create-62d013d5.yaml#/paths/create'
+  '/pay-in-transactions.create#c2d52504':
+    $ref: './pay-in-transactions/create-c2d52504.yaml#/paths/create'
+  '/pay-in-transactions.create#c5459c20':
+    $ref: './pay-in-transactions/create-c5459c20.yaml#/paths/create'
+  '/pay-in-transactions.create#d0648cf5':
+    $ref: './pay-in-transactions/create-d0648cf5.yaml#/paths/create'
+  '/pay-in-transactions.create#ede46d01':
+    $ref: './pay-in-transactions/create-ede46d01.yaml#/paths/create'
   '/pay-in-transactions.one-by-id#2a1a2066':
     $ref: './pay-in-transactions/one-by-id-2a1a2066.yaml#/paths/one-by-id'
   '/pay-in-transactions.one-by-id#fae18ad8':
     $ref: './pay-in-transactions/one-by-id-fae18ad8.yaml#/paths/one-by-id'
-  '/pay-out-transactions.create#1ca8c0d7':
-    $ref: './pay-out-transactions/create-1ca8c0d7.yaml#/paths/create'
-  '/pay-out-transactions.create#5a798908':
-    $ref: './pay-out-transactions/create-5a798908.yaml#/paths/create'
-  '/pay-out-transactions.create#68670641':
-    $ref: './pay-out-transactions/create-68670641.yaml#/paths/create'
-  '/pay-out-transactions.create#b38c7ee6':
-    $ref: './pay-out-transactions/create-b38c7ee6.yaml#/paths/create'
+  '/pay-out-transactions.create#3a82ed35':
+    $ref: './pay-out-transactions/create-3a82ed35.yaml#/paths/create'
+  '/pay-out-transactions.create#70054d02':
+    $ref: './pay-out-transactions/create-70054d02.yaml#/paths/create'
+  '/pay-out-transactions.create#e1c67e9b':
+    $ref: './pay-out-transactions/create-e1c67e9b.yaml#/paths/create'
   '/pay-out-transactions.one-by-id#db39c1e3':
     $ref: './pay-out-transactions/one-by-id-db39c1e3.yaml#/paths/one-by-id'

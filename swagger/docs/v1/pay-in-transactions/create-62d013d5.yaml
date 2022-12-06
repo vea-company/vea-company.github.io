@@ -2,8 +2,8 @@ paths:
   create:
     post:
       tags:
-        - pay-out-transactions
-      summary: 'Создание транзакций на вывод INR'
+        - pay-in-transactions
+      summary: "Создание заказа на пополнение INR\r\n(payment_method = 1 (P2P. UPI платежи))"
       requestBody:
         content:
           application/json:
@@ -18,7 +18,7 @@ paths:
                 method:
                   description: 'Field description'
                   type: string
-                  example: pay-out-transactions.create
+                  example: pay-in-transactions.create
                 params:
                   description: 'Field description'
                   type: object
@@ -27,38 +27,42 @@ paths:
                       description: 'Field description'
                       type: object
                       properties:
-                        id:
+                        orderId:
                           description: 'Field description'
                           type: string
-                          example: Test03
-                        date:
-                          description: 'Field description'
-                          type: string
-                          example: '2021-12-31 00:10:36'
+                          example: Test.0004
                         amount:
                           description: 'Field description'
                           type: integer
-                          example: 1100
-                        card_number:
-                          description: 'Field description'
-                          type: string
-                          example: '5469600044983310'
-                        currency:
-                          description: 'Field description'
-                          type: string
-                          example: INR
-                        callback_url:
-                          description: 'Field description'
-                          type: string
-                          example: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                          example: 5000
                         token:
                           description: 'Field description'
                           type: string
                           example: secret
-                        pay_out_method:
+                        paymentMethod:
+                          description: 'Field description'
+                          type: integer
+                          example: 1
+                        date:
                           description: 'Field description'
                           type: string
-                          example: UPI
+                          example: '2022-02-16 21:00:00'
+                        currency:
+                          description: 'Field description'
+                          type: string
+                          example: INR
+                        cardNumber:
+                          description: 'Field description'
+                          type: string
+                          example: '5536913926830866'
+                        callbackUrl:
+                          description: 'Field description'
+                          type: string
+                          example: 'http://mservis.local'
+                        backToMerchantUrl:
+                          description: 'Field description'
+                          type: string
+                          example: 'http://mservis.local'
                     meta:
                       description: 'Field description'
                       type: object
@@ -73,17 +77,18 @@ paths:
                   example: 1
               example:
                 jsonrpc: '2.0'
-                method: pay-out-transactions.create
+                method: pay-in-transactions.create
                 params:
                   body:
-                    id: Test03
-                    date: '2021-12-31 00:10:36'
-                    amount: 1100
-                    card_number: '5469600044983310'
-                    currency: INR
-                    callback_url: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                    orderId: Test.0004
+                    amount: 5000
                     token: secret
-                    pay_out_method: UPI
+                    paymentMethod: 1
+                    date: '2022-02-16 21:00:00'
+                    currency: INR
+                    cardNumber: '5536913926830866'
+                    callbackUrl: 'http://mservis.local'
+                    backToMerchantUrl: 'http://mservis.local'
                   meta:
                     version: '1'
                 id: 1
@@ -107,34 +112,18 @@ paths:
                         description: 'Field description'
                         type: object
                         properties:
-                          id:
+                          redirectUrl:
+                            description: 'Field description'
+                            type: 'NULL'
+                            example: null
+                          targetCardNumber:
                             description: 'Field description'
                             type: string
-                            example: Test03
-                          date:
-                            description: 'Field description'
-                            type: string
-                            example: '2021-12-31 00:10:36'
-                          amount:
+                            example: '444444444444444'
+                          validTill:
                             description: 'Field description'
                             type: integer
-                            example: 1100
-                          card_number:
-                            description: 'Field description'
-                            type: string
-                            example: '5469600044983310'
-                          currency:
-                            description: 'Field description'
-                            type: string
-                            example: BDT
-                          token:
-                            description: 'Field description'
-                            type: string
-                            example: secret
-                          callback_url:
-                            description: 'Field description'
-                            type: string
-                            example: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                            example: 444444444444444
                   id:
                     description: 'Field description'
                     type: integer
@@ -143,13 +132,9 @@ paths:
                   jsonrpc: '2.0'
                   result:
                     body:
-                      id: Test03
-                      date: '2021-12-31 00:10:36'
-                      amount: 1100
-                      card_number: '5469600044983310'
-                      currency: BDT
-                      token: secret
-                      callback_url: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                      redirectUrl: null
+                      targetCardNumber: '444444444444444'
+                      validTill: 444444444444444
                   id: 1
       security:
         -

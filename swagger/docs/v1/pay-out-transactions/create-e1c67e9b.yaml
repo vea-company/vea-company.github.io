@@ -2,8 +2,8 @@ paths:
   create:
     post:
       tags:
-        - pay-in-transactions
-      summary: "Создание заказа на пополнение BDT\r\n(payment_method = 2 (Acquiring))"
+        - pay-out-transactions
+      summary: 'Создание транзакций на вывод KRW'
       requestBody:
         content:
           application/json:
@@ -18,7 +18,7 @@ paths:
                 method:
                   description: 'Field description'
                   type: string
-                  example: pay-in-transactions.create
+                  example: pay-out-transactions.create
                 params:
                   description: 'Field description'
                   type: object
@@ -27,46 +27,42 @@ paths:
                       description: 'Field description'
                       type: object
                       properties:
-                        order_id:
+                        id:
                           description: 'Field description'
                           type: string
-                          example: Test.0004
+                          example: Test03
+                        date:
+                          description: 'Field description'
+                          type: string
+                          example: '2021-12-31 00:10:36'
                         amount:
                           description: 'Field description'
                           type: integer
-                          example: 5000
+                          example: 1100
+                        cardNumber:
+                          description: 'Field description'
+                          type: string
+                          example: '5469600044983310'
+                        currency:
+                          description: 'Field description'
+                          type: string
+                          example: KRW
+                        callbackUrl:
+                          description: 'Field description'
+                          type: string
+                          example: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                        holder:
+                          description: 'Field description'
+                          type: string
+                          example: 'Test test'
+                        bank:
+                          description: 'Field description'
+                          type: string
+                          example: VTB
                         token:
                           description: 'Field description'
                           type: string
                           example: secret
-                        email:
-                          description: 'Field description'
-                          type: string
-                          example: test@test.com
-                        payment_method:
-                          description: 'Field description'
-                          type: integer
-                          example: 2
-                        date:
-                          description: 'Field description'
-                          type: string
-                          example: '2022-02-16 21:00:00'
-                        currency:
-                          description: 'Field description'
-                          type: string
-                          example: RUB
-                        callback_url:
-                          description: 'Field description'
-                          type: string
-                          example: 'http://mservis.local'
-                        back_to_merchant_url:
-                          description: 'Field description'
-                          type: string
-                          example: 'http://mservis.local'
-                        back_to_merchant_failed_url:
-                          description: 'Field description'
-                          type: string
-                          example: 'http://mservis.local'
                     meta:
                       description: 'Field description'
                       type: object
@@ -81,19 +77,18 @@ paths:
                   example: 1
               example:
                 jsonrpc: '2.0'
-                method: pay-in-transactions.create
+                method: pay-out-transactions.create
                 params:
                   body:
-                    order_id: Test.0004
-                    amount: 5000
+                    id: Test03
+                    date: '2021-12-31 00:10:36'
+                    amount: 1100
+                    cardNumber: '5469600044983310'
+                    currency: KRW
+                    callbackUrl: 'https://webhook.site/848db7ba-fe87-4892-b424-1e3df797614d'
+                    holder: 'Test test'
+                    bank: VTB
                     token: secret
-                    email: test@test.com
-                    payment_method: 2
-                    date: '2022-02-16 21:00:00'
-                    currency: RUB
-                    callback_url: 'http://mservis.local'
-                    back_to_merchant_url: 'http://mservis.local'
-                    back_to_merchant_failed_url: 'http://mservis.local'
                   meta:
                     version: '1'
                 id: 1
@@ -117,10 +112,10 @@ paths:
                         description: 'Field description'
                         type: object
                         properties:
-                          redirect_url:
+                          internalId:
                             description: 'Field description'
-                            type: string
-                            example: testUrl.com
+                            type: integer
+                            example: 30
                   id:
                     description: 'Field description'
                     type: integer
@@ -129,7 +124,7 @@ paths:
                   jsonrpc: '2.0'
                   result:
                     body:
-                      redirect_url: testUrl.com
+                      internalId: 30
                   id: 1
       security:
         -

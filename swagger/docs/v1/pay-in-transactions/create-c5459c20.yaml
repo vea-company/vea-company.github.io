@@ -3,7 +3,7 @@ paths:
     post:
       tags:
         - pay-in-transactions
-      summary: "Создание заказа на пополнение INR\r\n(payment_method = 1 (P2P. UPI платежи))"
+      summary: "Создание заказа на пополнение RUB\r\n(payment_method = 1 (P2P. Схема с выбором банка и вводом номера карты на платежной странице))"
       requestBody:
         content:
           application/json:
@@ -27,7 +27,7 @@ paths:
                       description: 'Field description'
                       type: object
                       properties:
-                        order_id:
+                        orderId:
                           description: 'Field description'
                           type: string
                           example: Test.0004
@@ -39,7 +39,7 @@ paths:
                           description: 'Field description'
                           type: string
                           example: secret
-                        payment_method:
+                        paymentMethod:
                           description: 'Field description'
                           type: integer
                           example: 1
@@ -50,16 +50,12 @@ paths:
                         currency:
                           description: 'Field description'
                           type: string
-                          example: INR
-                        card_number:
-                          description: 'Field description'
-                          type: string
-                          example: '5536913926830866'
-                        callback_url:
+                          example: RUB
+                        callbackUrl:
                           description: 'Field description'
                           type: string
                           example: 'http://mservis.local'
-                        back_to_merchant_url:
+                        backToMerchantUrl:
                           description: 'Field description'
                           type: string
                           example: 'http://mservis.local'
@@ -80,15 +76,14 @@ paths:
                 method: pay-in-transactions.create
                 params:
                   body:
-                    order_id: Test.0004
+                    orderId: Test.0004
                     amount: 5000
                     token: secret
-                    payment_method: 1
+                    paymentMethod: 1
                     date: '2022-02-16 21:00:00'
-                    currency: INR
-                    card_number: '5536913926830866'
-                    callback_url: 'http://mservis.local'
-                    back_to_merchant_url: 'http://mservis.local'
+                    currency: RUB
+                    callbackUrl: 'http://mservis.local'
+                    backToMerchantUrl: 'http://mservis.local'
                   meta:
                     version: '1'
                 id: 1
@@ -112,10 +107,18 @@ paths:
                         description: 'Field description'
                         type: object
                         properties:
-                          redirect_url:
+                          redirectUrl:
+                            description: 'Field description'
+                            type: 'NULL'
+                            example: null
+                          targetCardNumber:
                             description: 'Field description'
                             type: string
-                            example: testUrl.com
+                            example: '444444444444444'
+                          validTill:
+                            description: 'Field description'
+                            type: integer
+                            example: 444444444444444
                   id:
                     description: 'Field description'
                     type: integer
@@ -124,7 +127,9 @@ paths:
                   jsonrpc: '2.0'
                   result:
                     body:
-                      redirect_url: testUrl.com
+                      redirectUrl: null
+                      targetCardNumber: '444444444444444'
+                      validTill: 444444444444444
                   id: 1
       security:
         -
